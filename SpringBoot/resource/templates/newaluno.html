@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" content="text/html" http-equiv="Content-Type" />
+        <title>NExT - Cadastrar Novo Aluno</title>
+    </head>
+    <body>
+        <div th:if="${success!=null}">
+            <p th:text="${success}" style="color: green;">Sucesso!</p>
+        </div>
+        <div th:if="${error!=null}">
+            <p th:text="${error}" style="color: red;">Erro!</p>
+        </div>
+        <h2>Cadastrar Novo Aluno</h2>
+        <form th:method="post" th:action="@{/aluno/new/save/}">
+            <table>
+                <tr>
+                    <td>Nome:</td>
+                    <td><input type="text" maxlength="100" th:name="nome"></td>
+                </tr>
+                <tr>
+                    <td>CPF:</td>
+                    <td><input type="text" maxlength="11" th:name="cpf"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td align="right">
+                        <a th:href="@{/aluno/list/}">
+                            <input type="button" value="Voltar" />
+                        </a>
+                        <input type="submit" value="Cadastrar">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
